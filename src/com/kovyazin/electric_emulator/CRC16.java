@@ -1,3 +1,5 @@
+package com.kovyazin.electric_emulator;
+
 public class CRC16
 {
     public static int crc16(int[] dataBuffer) {

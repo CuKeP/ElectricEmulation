@@ -1,3 +1,5 @@
+package com.kovyazin.electric_emulator;
+
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Welcome to Server side");
+        System.out.println("Welcome to com.kovyazin.electric_emulator.Server side");
 
         ArrayList <Integer> ip = new ArrayList ();
 
@@ -32,7 +34,7 @@ public class Server {
         try {
             System.out.print("Waiting for a client...");
             fromclient = servers.accept();
-            System.out.println("Client connected");
+            System.out.println("com.kovyazin.electric_emulator.Client connected");
 
 
 

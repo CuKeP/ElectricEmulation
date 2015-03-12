@@ -1,4 +1,4 @@
-//package org.eva.papyrus.counter.driver.electricity;
+package com.kovyazin.electric_emulator;//package org.eva.papyrus.counter.driver.electricity;
 //import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class SomeUtils
     static final int TIMEOUT = 6;
     static final int COUNTER_MAX_DELAY = 100;
 
-//    private static Logger log = Logger.getLogger(SomeUtils.class);
+//    private static Logger log = Logger.getLogger(com.kovyazin.electric_emulator.SomeUtils.class);
 
     private static final int[] BIT_CONST = {Integer.parseInt("00000001", 2),
             Integer.parseInt("00000010", 2),
@@ -143,7 +143,7 @@ public class SomeUtils
                         System.arraycopy(b, 0, result, destPos, b.length);
                         destPos = destPos + b.length;
                     }
-//                    log.debug(SomeUtils.toHexString(result));
+//                    log.debug(com.kovyazin.electric_emulator.SomeUtils.toHexString(result));
                     throw new IOException("Too long(more 1024) continious responce, may be port is broken.");
                 }
 
