@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
-
 public class Server {
     public static InputStream in = null;
     public static OutputStream out = null;
