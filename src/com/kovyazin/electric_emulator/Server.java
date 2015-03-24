@@ -20,7 +20,7 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Welcome to com.kovyazin.electric_emulator.Server side");
+        System.out.println("Welcome to client side");
 
         ArrayList<Integer> ip = new ArrayList<Integer>();
 
@@ -33,7 +33,7 @@ public class Server {
         try {
             System.out.print("Waiting for a client...");
             clientSocket = servers.accept();
-            System.out.println("com.kovyazin.electric_emulator.Client connected");
+            System.out.println("client connected");
 
 
         } catch (IOException e) {
@@ -54,9 +54,9 @@ public class Server {
                 if (ip.get(1) == 0) {
                     byte[] fs = new byte[]{1, 0, -2};
                     fs[0] = (byte) b;
-                    ArrayList<Integer> ip2 = new ArrayList();
-                    for (int i = 0; i < fs.length; i++) {
-                        ip2.add((int) fs[i]);
+                    ArrayList<Integer> ip2 = new ArrayList<Integer>();
+                    for (byte f : fs) {
+                        ip2.add((int) f);
                     }
                     fs[2] = (byte) controlSum(ip2);
                     out.write(fs);
@@ -65,9 +65,9 @@ public class Server {
                 if (ip.get(1) == 1) {
                     byte[] fs = new byte[]{1, 0, -2};
                     fs[0] = (byte) b;
-                    ArrayList<Integer> ip2 = new ArrayList();
-                    for (int i = 0; i < fs.length; i++) {
-                        ip2.add((int) fs[i]);
+                    ArrayList<Integer> ip2 = new ArrayList<Integer>();
+                    for (byte f : fs) {
+                        ip2.add((int) f);
                     }
                     fs[2] = (byte) controlSum(ip2);
                     out.write(fs);
@@ -76,9 +76,9 @@ public class Server {
                 if (ip.get(1) == 2) {
                     byte[] fs = new byte[]{1, 0, -2};
                     fs[0] = (byte) b;
-                    ArrayList<Integer> ip2 = new ArrayList();
-                    for (int i = 0; i < fs.length; i++) {
-                        ip2.add((int) fs[i]);
+                    ArrayList<Integer> ip2 = new ArrayList<Integer>();
+                    for (byte f : fs) {
+                        ip2.add((int) f);
                     }
                     fs[2] = (byte) controlSum(ip2);
                     out.write(fs);
@@ -87,9 +87,9 @@ public class Server {
                 if (ip.get(1) == 4) {
                     byte[] fs = new byte[]{1, 49, 48, 21, 1, 2, 9, 2, 0, 0};
                     fs[0] = (byte) b;
-                    ArrayList<Integer> ip2 = new ArrayList();
-                    for (int i = 0; i < fs.length; i++) {
-                        ip2.add((int) fs[i]);
+                    ArrayList<Integer> ip2 = new ArrayList<Integer>();
+                    for (byte f : fs) {
+                        ip2.add((int) f);
                     }
                     fs[9] = (byte) controlSum(ip2);
                     out.write(fs);
@@ -100,9 +100,9 @@ public class Server {
                         case 5:
                             byte[] fs = new byte[]{5, 0, 5, 0};
                             fs[0] = (byte) b;
-                            ArrayList<Integer> ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ArrayList<Integer> ip2 = new ArrayList<Integer>();
+                            for (byte f9 : fs) {
+                                ip2.add((int) f9);
                             }
                             fs[3] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -111,9 +111,9 @@ public class Server {
                         case 18:
                             fs = new byte[]{5, 97, 64, 16, 0};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f8 : fs) {
+                                ip2.add((int) f8);
                             }
                             fs[4] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -122,9 +122,9 @@ public class Server {
                         case 11:
                             fs = new byte[]{5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f7 : fs) {
+                                ip2.add((int) f7);
                             }
                             fs[17] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -133,9 +133,9 @@ public class Server {
                         case 0:
                             fs = new byte[]{5, 6, 113, 29, 117, 24, 8, 7, 0};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f6 : fs) {
+                                ip2.add((int) f6);
                             }
                             fs[8] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -144,9 +144,9 @@ public class Server {
                         case 2:
                             fs = new byte[]{5, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f5 : fs) {
+                                ip2.add((int) f5);
                             }
                             fs[10] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -156,9 +156,9 @@ public class Server {
                             if (ip.get(3) == 1) {
                                 fs = new byte[]{5, 0, 3, 0};
                                 fs[0] = (byte) b;
-                                ip2 = new ArrayList();
-                                for (int i = 0; i < fs.length; i++) {
-                                    ip2.add((int) fs[i]);
+                                ip2 = new ArrayList<Integer>();
+                                for (byte f : fs) {
+                                    ip2.add((int) f);
                                 }
                                 fs[3] = (byte) controlSum(ip2);
                                 out.write(fs);
@@ -167,9 +167,9 @@ public class Server {
                             } else {
                                 fs = new byte[]{5, 0, 0x1E, 0};
                                 fs[0] = (byte) b;
-                                ip2 = new ArrayList();
-                                for (int i = 0; i < fs.length; i++) {
-                                    ip2.add((int) fs[i]);
+                                ip2 = new ArrayList<Integer>();
+                                for (byte f : fs) {
+                                    ip2.add((int) f);
                                 }
                                 fs[3] = (byte) controlSum(ip2);
                                 out.write(fs);
@@ -180,9 +180,9 @@ public class Server {
                             if (ip.get(3) == 1) {
                                 fs = new byte[]{5, (byte) 0x86, 0x19, 0x21, 0x11, 0x14, (byte) 0xB1, (byte) 0x48, 0};
                                 fs[0] = (byte) b;
-                                ip2 = new ArrayList();
-                                for (int i = 0; i < fs.length; i++) {
-                                    ip2.add((int) fs[i]);
+                                ip2 = new ArrayList<Integer>();
+                                for (byte f : fs) {
+                                    ip2.add((int) f);
                                 }
                                 fs[8] = (byte) controlSum(ip2);
                                 out.write(fs);
@@ -190,9 +190,9 @@ public class Server {
                             } else {
                                 fs = new byte[]{5, (byte) 0x80, 0x19, 0x21, 0x11, 0x14, (byte) 0xAB, (byte) 0x98};
                                 fs[0] = (byte) b;
-                                ip2 = new ArrayList();
-                                for (int i = 0; i < fs.length; i++) {
-                                    ip2.add((int) fs[i]);
+                                ip2 = new ArrayList<Integer>();
+                                for (byte f : fs) {
+                                    ip2.add((int) f);
                                 }
                                 fs[7] = (byte) controlSum(ip2);
                                 out.write(fs);
@@ -202,9 +202,9 @@ public class Server {
                         case 1:
                             fs = new byte[]{5, (byte) 0x80, 0x19, 0x21, 0x11, 0x14, (byte) 0xAB, (byte) 0x98};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f4 : fs) {
+                                ip2.add((int) f4);
                             }
                             fs[7] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -213,9 +213,9 @@ public class Server {
                         case 3:
                             fs = new byte[]{5, (byte) 0x2, 0x32, 0x30, 0};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f3 : fs) {
+                                ip2.add((int) f3);
                             }
                             fs[4] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -224,9 +224,9 @@ public class Server {
                         case 9:
                             fs = new byte[]{5, (byte) 0x0, 0x6, 0};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f2 : fs) {
+                                ip2.add((int) f2);
                             }
                             fs[3] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -235,9 +235,9 @@ public class Server {
                         case 34:
                             fs = new byte[]{5, (byte) 0x0, 0x32, 0};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f1 : fs) {
+                                ip2.add((int) f1);
                             }
                             fs[3] = (byte) controlSum(ip2);
                             out.write(fs);
@@ -246,9 +246,9 @@ public class Server {
                         case 36:
                             fs = new byte[]{5, (byte) 0x31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                             fs[0] = (byte) b;
-                            ip2 = new ArrayList();
-                            for (int i = 0; i < fs.length; i++) {
-                                ip2.add((int) fs[i]);
+                            ip2 = new ArrayList<Integer>();
+                            for (byte f : fs) {
+                                ip2.add((int) f);
                             }
                             fs[33] = (byte) controlSum(ip2);
                             out.write(fs);
