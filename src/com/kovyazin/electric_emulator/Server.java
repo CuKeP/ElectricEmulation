@@ -251,7 +251,6 @@ public class Server {
                             fs[33] = (byte) controlSum(ip2);
                             out.write(fs);
                             break;
-
                     }
 
                 }
