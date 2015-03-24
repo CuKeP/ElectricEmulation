@@ -28,7 +28,6 @@ public class Server {
 
         servers = new ServerSocket(4444, 0, InetAddress.getByName("localhost"));
 
-
         try {
             System.out.print("Waiting for a client...");
             clientSocket = servers.accept();
