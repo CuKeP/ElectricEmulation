@@ -1,3 +1,5 @@
+package com.kovyazin.electric_emulator;
+
 import java.io.*;
 import java.net.*;
 import java.text.ParseException;
@@ -41,6 +43,7 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException, ParseException {
+
 
         prop.load(new InputStreamReader(new FileInputStream("D:\\progr\\JAVA_PROJECTS\\ElectricEmulator\\src\\com\\kovyazin\\electric_emulator\\example.properties"), "UTF-8"));
         System.out.println("data=" + getDate());
