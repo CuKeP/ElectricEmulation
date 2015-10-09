@@ -114,7 +114,6 @@ public class Server {
         counterAnswerArray[outputData.length + 1] = controlSum;
 
         System.out.println("output mass: " + Arrays.toString(counterAnswerArray) + "\n");
-
         clientOutputStream.write(counterAnswerArray);
     }
 
