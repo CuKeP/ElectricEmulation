@@ -41,7 +41,7 @@ public class Server {
 
         System.out.println("Waiting for a client...");
         Socket clientSocket = waitClient(serverSocket);
-        if ( null == clientSocket ) {
+        if (null == clientSocket) {
             //FIXME: close serverSocket
             System.out.println("Can't accept");
             return;
@@ -51,7 +51,7 @@ public class Server {
         clientInputStream = clientSocket.getInputStream();
         clientOutputStream = clientSocket.getOutputStream();
 
-        while ( clientInputStream != null ) {
+        while (clientInputStream != null) {
             int value = clientInputStream.read();
             inputBytes.add(value);
             if (value == controlSum(inputBytes)) {
@@ -64,7 +64,6 @@ public class Server {
                 inputBytes.clear();
             }
         }
-
         clientOutputStream.close();
         clientInputStream.close();
         clientSocket.close();
@@ -72,7 +71,7 @@ public class Server {
     }
 
     private static RequestHandler getRequestHandler(int requestCode) {
-        switch ( requestCode ) {
+        switch (requestCode) {
             case RH_OPEN_CHANEL:
                 return new OpenChannelRequestHandler();
             case RH_CLOSE_CHANEL:
@@ -109,7 +108,7 @@ public class Server {
         for (int k : counterAnswerArray) {
             controlSumElements.add(k);
         }
-        byte controlSum = (byte)controlSum(controlSumElements);
+        byte controlSum = (byte) controlSum(controlSumElements);
 
         // Set control sum value
         counterAnswerArray[outputData.length + 1] = controlSum;

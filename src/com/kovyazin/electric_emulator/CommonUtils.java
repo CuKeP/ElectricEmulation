@@ -11,7 +11,7 @@ public class CommonUtils {
 
     public static int getDateDelta(String date) {
         SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        long date1 = 0;
+        long date1;
         try {
             date1 = df.parse(date).getTime();
         } catch (ParseException e) {

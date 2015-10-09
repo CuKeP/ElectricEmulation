@@ -63,11 +63,11 @@ public class ReadParamsRequstHandler implements RequestHandler {
             case 6: //����� ��������������
                 if (inputBytes.get(3) == 1) {
                     outputData = new byte[]{0, 0};
-                    outputData[1] = (byte) (integrationTime2);
+                    outputData[1] = integrationTime2;
                     return outputData;
                 } else {
                     outputData = new byte[]{0, 0}; // 1E - 30min
-                    outputData[1] = (byte) (integrationTime);
+                    outputData[1] = integrationTime;
                     return outputData;
                 }
 //
