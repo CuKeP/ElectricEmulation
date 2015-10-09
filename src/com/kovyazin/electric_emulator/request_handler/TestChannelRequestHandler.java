@@ -12,4 +12,3 @@ public class TestChannelRequestHandler implements RequestHandler {
         return new byte[1];
     }
 }
-

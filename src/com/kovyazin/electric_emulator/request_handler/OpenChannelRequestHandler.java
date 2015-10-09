@@ -12,4 +12,3 @@ public class OpenChannelRequestHandler implements RequestHandler {
         return new byte[1];
     }
 }
-
