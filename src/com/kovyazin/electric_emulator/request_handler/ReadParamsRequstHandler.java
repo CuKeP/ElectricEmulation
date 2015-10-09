@@ -77,7 +77,7 @@ public class ReadParamsRequstHandler implements RequestHandler {
                 } else {
                     return new byte[]{(byte) 0x80, 0x19, 0x21, 0x11, 0x14, (byte) 0xAB, (byte) 0x98};
                 }
-            case 1: //Чтение температуры
+            case 1: //Чтение температуры 
                 return new byte[]{0, 29};
             case 3: //версия ПО
                 return new byte[]{2, 50, 48};
