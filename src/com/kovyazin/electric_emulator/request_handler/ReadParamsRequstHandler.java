@@ -37,13 +37,13 @@ public class ReadParamsRequstHandler implements RequestHandler {
     public byte[] handle(List<Integer> inputBytes) {
         byte[] outputData;
         switch (inputBytes.get(2)) {
-            case 5: //������� ����� �������� 3� ��������
+            case 5: //сетевой адрес короткий 3й параметр
                 return new byte[]{0, networkAddress};
-            case 18: //���������� ��������
+            case 18: //постоянная счетчика
                 return new byte[]{97, (byte) (64 + postSchet), 16};
-            case 11: //����� �����
+            case 11: //точка учета
                 return new byte[16];
-            case 0: //�������� �����, ���� �������
+            case 0: //серийный номер, дата выпуска
                 outputData = new byte[7];
                 outputData[0] = (byte) (networkAddress / 256 / 256 / 256);
                 outputData[1] = (byte) (networkAddress / 256 / 256);
@@ -53,14 +53,14 @@ public class ReadParamsRequstHandler implements RequestHandler {
                 outputData[5] = month;
                 outputData[6] = year;
                 return outputData;
-            case 2: //����������� �������������
+            case 2: //коэффиценты трансформации
                 outputData = new byte[10];
                 outputData[0] = (byte) (kn / 256);
                 outputData[1] = (byte) (kn % 256);
                 outputData[2] = (byte) (kt / 256);
                 outputData[3] = (byte) (kt % 256);
                 return outputData;
-            case 6: //����� ��������������
+            case 6: //время интегрирования
                 if (inputBytes.get(3) == 1) {
                     outputData = new byte[]{0, 0};
                     outputData[1] = integrationTime2;
@@ -71,25 +71,25 @@ public class ReadParamsRequstHandler implements RequestHandler {
                     return outputData;
                 }
 //
-            case 4: //����������� ������ �������� ��������� ������� ������� �������� (������� ��� �������)
+            case 4: //Расширенное чтение текущего указателя массива профиля мощности (первого или второго)
                 if (inputBytes.get(3) == 1) {
                     return new byte[]{(byte) 0x86, 0x19, 0x21, 0x11, 0x14, (byte) 0xB1, (byte) 0x48};
                 } else {
                     return new byte[]{(byte) 0x80, 0x19, 0x21, 0x11, 0x14, (byte) 0xAB, (byte) 0x98};
                 }
-            case 1: //������ �����������
+            case 1: //Чтение температуры
                 return new byte[]{0, 29};
-            case 3: //������ ��
+            case 3: //версия ПО
                 return new byte[]{2, 50, 48};
-            case 9: //������ ��������������� ������
+            case 9: //Чтение программируемых флагов
                 return new byte[]{0, 6};
-            case 34: //������ ����� �������� ���������� ���  ��������� ��������������� ����������
+            case 34: //Чтение числа периодов усреднения для  измерения вспомогательных параметров
                 return new byte[]{0, 0x32};
-            case 36: //������ �������������� ��������
+            case 36: //Чтение идентификатора счетчика
                 return getID(id);
-            case 14: //������ ��������� �������� ������
+            case 14: //Чтение указателя текущего тарифа
                 return new byte[]{17, 18, 4, 11, 12, 14, 0};
-            case 13: //������ ������� �������� ������
+            case 13: //Чтение энергии текущего тарифа
                 return new byte[]{0, 0, 12, 2, 0, 0, 12, 13, 0, 4, 0, 0, 0, 11, 0, 0};
             default:
                 throw new IllegalArgumentException("no code param");
