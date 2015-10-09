@@ -8,3 +8,4 @@ import java.util.List;
 public interface RequestHandler {
     byte[] handle(List<Integer> inputBytes);
 }
+

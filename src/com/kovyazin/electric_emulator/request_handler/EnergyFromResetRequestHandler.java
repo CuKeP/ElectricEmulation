@@ -47,6 +47,5 @@ public class EnergyFromResetRequestHandler implements RequestHandler {
         outputData[12] = (byte) (Rminus / 256 / 256 / 256);
 
         return outputData;
-
     }
 }

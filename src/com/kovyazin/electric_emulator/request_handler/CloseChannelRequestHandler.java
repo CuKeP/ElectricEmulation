@@ -12,3 +12,4 @@ public class CloseChannelRequestHandler implements RequestHandler {
         return new byte[1];
     }
 }
+

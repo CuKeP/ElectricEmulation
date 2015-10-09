@@ -21,5 +21,4 @@ public class CommonUtils {
         long date3 = date2 - date1;
         return (int) (date3 / 1000 / 60 / 60);
     }
-
 }
