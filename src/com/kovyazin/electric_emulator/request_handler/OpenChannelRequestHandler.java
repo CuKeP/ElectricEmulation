@@ -9,6 +9,7 @@ public class OpenChannelRequestHandler implements RequestHandler {
 
     @Override
     public byte[] handle(List<Integer> inputBytes) {
+
         return new byte[1];
     }
 }
