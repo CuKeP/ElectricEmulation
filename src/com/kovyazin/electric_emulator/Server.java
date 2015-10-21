@@ -1,5 +1,4 @@
 package com.kovyazin.electric_emulator;
-
 import com.kovyazin.electric_emulator.request_handler.*;
 
 import java.io.*;
