@@ -1,4 +1,5 @@
 package com.kovyazin.electric_emulator;
+
 import com.kovyazin.electric_emulator.request_handler.*;
 
 import java.io.*;
@@ -16,6 +17,7 @@ public class Server {
     public static final int RH_CLOSE_CHANEL = 2;
     public static final int RH_ENERGY_FROM_RESET = 5;
     public static final int RH_READING_PARAMETERS = 8;
+    public static final int RH_RECORDING_PARAMETERS = 3;
 
     private static final int INDEX_NETWORK_ADDRESS = 0;
     private static final int INDEX_REQUEST_CODE = 1;
@@ -25,12 +27,9 @@ public class Server {
     public static Properties prop = new Properties();
 
     public static void main(String[] args) throws IOException, ParseException, SQLException {
-//        Jdbc jdbc = new Jdbc();
-//        jdbc.getEnergyReset("SELECT \"to\" from ENERGY where t1=100 ");
 
         //FIXME: Close the stream
-        prop.load(new InputStreamReader(new FileInputStream("D:\\progr\\JAVA_PROJECTS\\ElectricEmulator\\example.properties"), "UTF-8"));
-//        System.out.println("data=" + CommonUtils.getDateDelta());
+        prop.load(new InputStreamReader(new FileInputStream("example.properties"), "UTF-8"));
 
         System.out.println("Welcome to Server side");
 
@@ -69,7 +68,7 @@ public class Server {
         serverSocket.close();
     }
 
-    private static RequestHandler getRequestHandler(int requestCode) {
+    private static RequestHandler getRequestHandler(int requestCode) throws IOException {
         switch (requestCode) {
             case RH_OPEN_CHANEL:
                 return new OpenChannelRequestHandler();
@@ -81,7 +80,14 @@ public class Server {
                 return new EnergyFromResetRequestHandler(prop.getProperty("data_otscheta"),
                         Integer.parseInt(prop.getProperty("delta")));
             case RH_READING_PARAMETERS:
-                return new ReadParamsRequstHandler(prop.getProperty("NetworkAddress"), prop.getProperty("post_schet"), prop.getProperty("serNumber"), prop.getProperty("day"), prop.getProperty("month"), prop.getProperty("year"), prop.getProperty("KN"), prop.getProperty("KT"), prop.getProperty("time_integr"), prop.getProperty("time_integr2"), prop.getProperty("id"));
+                return new ReadParamsRequestHandler();
+            case RH_RECORDING_PARAMETERS:
+                try {
+                    prop.load(new InputStreamReader(new FileInputStream("example.properties"), "UTF-8"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return new RecParamsRequestHandler();
             default:
                 throw new IllegalArgumentException("Unknown request code");
         }
