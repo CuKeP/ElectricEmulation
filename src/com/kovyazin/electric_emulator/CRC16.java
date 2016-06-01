@@ -125,7 +125,7 @@ public class CRC16
 
     public static void fillCrc16(byte[] b)
     {
-        int crc = crc16(b, 0, b.length - 2);
+        int crc = crc16(b, 0, b.length-2);
         int hi = getHiByte(crc);
         int lo = getLoByte(crc);
         b[b.length - 1] = (byte) hi;
@@ -146,9 +146,10 @@ public class CRC16
 
     public static void main(String[] args) {
         byte[] b = new byte[4];
-        b[0] = (byte) 0xA; //Byte.parseByte("9", 16);
-        b[1] = (byte) 0x80; //Byte.parseByte("80", 16);
+        b[0] = (byte) 0x1; //Byte.parseByte("9", 16);
+        b[1] = (byte) 0x0; //Byte.parseByte("80", 16);
         fillCrc16(b);
+
         System.out.println(SomeUtils.toHexString(b));
     }
 }

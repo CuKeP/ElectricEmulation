@@ -46,6 +46,10 @@ public class RecParamsRequestHandler implements RequestHandler {
                 CommonUtils.saveProperties("KT", String.valueOf((inputBytes.get(3)*256)+inputBytes.get(4)));
                 return new byte[]{0};
 
+            case 40: //2.3.1.21	Поиск адреса заголовка массива профиля мощности 28h
+                //CommonUtils.saveProperties("KT", String.valueOf((inputBytes.get(3)*256)+inputBytes.get(4)));
+                return new byte[]{0};
+
             case 49://2.3.1.28 Запись числа периодов усреднения для измерения вспомогательных парамет-
                 CommonUtils.saveProperties("periodAvgParam", String.valueOf(inputBytes.get(4)));
                 return new byte[]{0};
